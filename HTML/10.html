@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script>
+
+let count = 0;
+
+function increase() {
+
+    count++;
+
+    console.log("Count Value:", count);
+
+    debugger;
+
+    document.getElementById("result").innerHTML =
+        count;
+}
+
+</script>
+
+</head>
+
+<body>
+
+<h2>Debugging Example</h2>
+
+<button onclick="increase()">
+    Click
+</button>
+
+<p id="result">0</p>
+
+</body>
+</html>

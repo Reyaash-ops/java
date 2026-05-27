@@ -1,0 +1,205 @@
+/* style.css */
+
+/* Universal Selector */
+
+* {
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+
+body {
+
+    font-family: Arial, sans-serif;
+
+    background-color: rgba(220,220,220,0.5);
+
+    background-image: url('bg.jpg');
+
+    padding: 20px;
+}
+
+/* Navigation */
+
+nav ul {
+
+    list-style-type: none;
+
+    display: flex;
+
+    gap: 20px;
+
+    background-color: black;
+
+    padding: 15px;
+}
+
+nav ul li a {
+
+    color: white;
+
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+
+    color: yellow;
+}
+
+/* Header */
+
+#mainHeader {
+
+    background: linear-gradient(to right, blue, purple);
+
+    color: white;
+
+    padding: 20px;
+
+    text-align: center;
+}
+
+/* Welcome Banner */
+
+#welcomeBanner {
+
+    background-color: blue;
+
+    color: white;
+
+    padding: 20px;
+
+    margin-top: 20px;
+}
+
+.highlight {
+
+    background-color: yellow;
+
+    color: black;
+}
+
+/* Event Card */
+
+.eventCard {
+
+    border: 2px solid black;
+
+    padding: 20px;
+
+    margin: 20px 0;
+}
+
+/* Group Selector */
+
+h3, p {
+
+    color: darkblue;
+}
+
+/* Gallery */
+
+table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    margin-top: 20px;
+}
+
+th, td {
+
+    border: 1px solid black;
+
+    padding: 15px;
+
+    text-align: center;
+}
+
+tr:nth-child(even) {
+
+    background-color: lightgray;
+}
+
+.galleryImg {
+
+    width: 150px;
+
+    height: 100px;
+
+    border: 3px solid black;
+}
+
+/* Form Styling */
+
+form {
+
+    border: 2px solid black;
+
+    padding: 20px;
+
+    margin-top: 20px;
+}
+
+input, textarea, select {
+
+    width: 100%;
+
+    padding: 10px;
+
+    margin-bottom: 10px;
+}
+
+input:focus {
+
+    outline: 3px solid red;
+}
+
+/* Visibility Example */
+
+.hidden {
+
+    visibility: hidden;
+}
+
+.none {
+
+    display: none;
+}
+
+/* Multi Column */
+
+.news {
+
+    column-count: 2;
+
+    column-gap: 30px;
+
+    column-rule: 1px solid gray;
+
+    margin-top: 20px;
+}
+
+/* Responsive Design */
+
+@media screen and (max-width: 768px) {
+
+    nav ul {
+
+        flex-direction: column;
+    }
+
+    .galleryImg {
+
+        width: 100px;
+    }
+
+    h1 {
+
+        font-size: 24px;
+    }
+}

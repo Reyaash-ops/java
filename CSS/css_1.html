@@ -1,0 +1,387 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Community Event Portal</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+
+        function savePreference() {
+
+            let eventType =
+                document.getElementById("eventType").value;
+
+            localStorage.setItem("eventType", eventType);
+        }
+
+        function loadPreference() {
+
+            let saved =
+                localStorage.getItem("eventType");
+
+            if(saved) {
+
+                document.getElementById("eventType").value =
+                    saved;
+            }
+        }
+
+        function clearPreferences() {
+
+            localStorage.clear();
+            sessionStorage.clear();
+
+            alert("Preferences Cleared");
+        }
+
+        function validatePhone() {
+
+            let phone =
+                document.getElementById("phone").value;
+
+            if(phone.length != 10) {
+
+                alert("Invalid Phone Number");
+            }
+        }
+
+        function showFee() {
+
+            let fee =
+                document.getElementById("eventType").value;
+
+            document.getElementById("fee").innerHTML =
+                "Event Fee: ₹" + fee;
+        }
+
+        function confirmSubmit() {
+
+            alert("Registration Successful");
+        }
+
+        function enlargeImage(img) {
+
+            img.style.width = "300px";
+        }
+
+        function countCharacters() {
+
+            let text =
+                document.getElementById("feedback").value;
+
+            document.getElementById("count").innerHTML =
+                text.length;
+        }
+
+        function videoReady() {
+
+            document.getElementById("videoMsg").innerHTML =
+                "Video ready to play";
+        }
+
+        window.onbeforeunload = function() {
+
+            return "Form not completed!";
+        }
+
+        function findLocation() {
+
+            if(navigator.geolocation) {
+
+                navigator.geolocation.getCurrentPosition(
+
+                    showPosition,
+
+                    showError,
+
+                    {
+                        enableHighAccuracy: true,
+                        timeout: 5000
+                    }
+                );
+            }
+        }
+
+        function showPosition(position) {
+
+            document.getElementById("location").innerHTML =
+
+                "Latitude: " +
+                position.coords.latitude +
+
+                "<br>Longitude: " +
+                position.coords.longitude;
+        }
+
+        function showError() {
+
+            alert("Unable to fetch location");
+        }
+
+    </script>
+
+</head>
+
+<body onload="loadPreference()">
+
+    <!-- Navigation -->
+
+    <nav>
+
+        <ul>
+
+            <li><a href="#home">Home</a></li>
+
+            <li><a href="#events">Events</a></li>
+
+            <li><a href="#gallery">Gallery</a></li>
+
+            <li><a href="#contact">Contact</a></li>
+
+        </ul>
+
+    </nav>
+
+    <!-- Header -->
+
+    <header id="mainHeader">
+
+        <h1 style="color:red;">
+            Community Event Portal
+        </h1>
+
+    </header>
+
+    <!-- Welcome Banner -->
+
+    <div id="welcomeBanner">
+
+        <h2>Welcome User</h2>
+
+        <p class="highlight">
+
+            Special Offer :
+
+            <span style="color:red; font-weight:bold;">
+
+                50% Discount
+
+            </span>
+
+        </p>
+
+    </div>
+
+    <!-- Event Section -->
+
+    <section id="events">
+
+        <h2>Upcoming Events</h2>
+
+        <div class="eventCard">
+
+            <h3>Music Festival</h3>
+
+            <p>Enjoy amazing live performances</p>
+
+        </div>
+
+    </section>
+
+    <!-- Image Gallery -->
+
+    <section id="gallery">
+
+        <h2>Event Gallery</h2>
+
+        <table>
+
+            <caption>Community Events</caption>
+
+            <tr>
+
+                <td>
+                    <img src="img1.jpg"
+                         alt="Music Event"
+                         title="Music Event"
+                         class="galleryImg"
+                         ondblclick="enlargeImage(this)">
+
+                    <p>Music Show</p>
+                </td>
+
+                <td>
+                    <img src="img2.jpg"
+                         alt="Dance Event"
+                         title="Dance Event"
+                         class="galleryImg">
+
+                    <p>Dance Program</p>
+                </td>
+
+                <td>
+                    <img src="img3.jpg"
+                         alt="Sports Event"
+                         title="Sports Event"
+                         class="galleryImg">
+
+                    <p>Sports Meet</p>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    <img src="img4.jpg"
+                         alt="Art Event"
+                         title="Art Event"
+                         class="galleryImg">
+
+                    <p>Art Expo</p>
+                </td>
+
+                <td>
+                    <img src="img5.jpg"
+                         alt="Book Fair"
+                         title="Book Fair"
+                         class="galleryImg">
+
+                    <p>Book Fair</p>
+                </td>
+
+                <td>
+                    <img src="img6.jpg"
+                         alt="Food Fest"
+                         title="Food Fest"
+                         class="galleryImg">
+
+                    <p>Food Carnival</p>
+                </td>
+
+            </tr>
+
+        </table>
+
+    </section>
+
+    <!-- Registration Form -->
+
+    <section id="contact">
+
+        <h2>Event Registration</h2>
+
+        <form onsubmit="confirmSubmit(); return false;">
+
+            <input type="text"
+                   placeholder="Enter Name"
+                   required
+                   autofocus>
+
+            <input type="email"
+                   placeholder="Enter Email"
+                   required>
+
+            <input type="text"
+                   id="phone"
+                   placeholder="Phone Number"
+                   onblur="validatePhone()">
+
+            <input type="date" required>
+
+            <select id="eventType"
+                    onchange="savePreference(); showFee()">
+
+                <option value="100">Music</option>
+
+                <option value="200">Dance</option>
+
+                <option value="300">Sports</option>
+
+            </select>
+
+            <p id="fee"></p>
+
+            <textarea id="feedback"
+                      placeholder="Feedback"
+                      onkeyup="countCharacters()"></textarea>
+
+            <p>
+                Characters :
+                <span id="count">0</span>
+            </p>
+
+            <button type="submit">
+                Register
+            </button>
+
+            <button type="button"
+                    onclick="clearPreferences()">
+
+                Clear Preferences
+
+            </button>
+
+        </form>
+
+    </section>
+
+    <!-- Video Section -->
+
+    <section>
+
+        <h2>Event Promo Video</h2>
+
+        <video width="400"
+               controls
+               oncanplay="videoReady()">
+
+            <source src="video.mp4"
+                    type="video/mp4">
+
+        </video>
+
+        <p id="videoMsg"></p>
+
+    </section>
+
+    <!-- Multi Column News -->
+
+    <section class="news">
+
+        Lorem ipsum dolor sit amet, consectetur
+        adipiscing elit. Sed do eiusmod tempor
+        incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud
+        exercitation ullamco laboris nisi ut aliquip.
+
+    </section>
+
+    <!-- Geolocation -->
+
+    <section>
+
+        <h2>Find Nearby Events</h2>
+
+        <button onclick="findLocation()">
+
+            Find Nearby Events
+
+        </button>
+
+        <p id="location"></p>
+
+    </section>
+
+</body>
+</html>
