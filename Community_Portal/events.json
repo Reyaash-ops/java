@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "Music Fest",
+        "category": "Music",
+        "location": "Salem",
+        "date": "2026-12-20",
+        "seats": 5
+    },
+    {
+        "id": 2,
+        "name": "Baking Workshop",
+        "category": "Workshop",
+        "location": "Chennai",
+        "date": "2026-10-10",
+        "seats": 2
+    },
+    {
+        "id": 3,
+        "name": "Football Match",
+        "category": "Sports",
+        "location": "Coimbatore",
+        "date": "2025-01-01",
+        "seats": 0
+    }
+]

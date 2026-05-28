@@ -1,0 +1,43 @@
+body {
+    font-family: Arial;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    color: darkblue;
+}
+
+#eventContainer {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: white;
+    padding: 15px;
+    width: 250px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px gray;
+}
+
+button {
+    padding: 8px;
+    background: darkblue;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.error {
+    color: red;
+    display: block;
+    margin-bottom: 10px;
+}
+
+#loading {
+    font-size: 20px;
+    color: green;
+    margin: 20px 0;
+}
